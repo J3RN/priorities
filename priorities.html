@@ -3,28 +3,25 @@
 </head>
 
 <body>
-  <h1>Do Now:</h1>
+  <h1>Do Now</h1>
   {{#with top_task}}
     {{> task}}
   {{/with}}
 
-  <h1>Add New:</h1>
-  <form class="new-task-form">
-    <input type="text" name="text" placeholder="Description" />
-    <input type="number" min=1 max=5 name="priority" placeholder="Priority (from 1 to 5)" />
-    <input type="text" name="due_date" placeholder="Due Date" />
-    <input type="submit" value="Add!"/>
-  </form>
-
-  <h1>Do Later:</h1>
+  <h1>Do Later</h1>
   {{#each tasks}}
     {{> task}}
   {{/each}}
 
-  <h1>Done:</h1>
-  {{#each finished_tasks}}
-    {{> task}}
-  {{/each}}
+  <h1>New Task</h1>
+  <p class="error">{{error_message}}</p>
+  <form class="new-task-form">
+    <input type="text" name="text" placeholder="Description" />
+    <input type="number" min=1 max=5 name="priority" placeholder="Priority (from 1 to 5)" />
+    <input type="text" name="due_date" placeholder="Due Date" />
+    <input type="number" name="ttc" placeholder="Hours to completion" />
+    <input type="submit" value="Add!"/>
+  </form>
 </body>
 
 <template name="task">
